@@ -46,29 +46,9 @@ const styles = StyleSheet.create({
 })
 
 const Stacks = () => {
-    const frontData = [
+    const mainStack = [
         {
-            name: "HTML",
-            icon: "/html.png"
-        },
-        {
-            name: "CSS",
-            icon: "/css.png"
-        },
-        {
-            name: "Sass",
-            icon: "/sass.png"
-        },
-        {
-            name: "TailwindCSS",
-            icon: "/tailwindcss.png"
-        },
-        {
-            name: "JS",
-            icon: "/javascript.png"
-        },
-        {
-            name: "TS",
+            name: "Typescript",
             icon: "/typescript.png"
         },
         {
@@ -83,10 +63,10 @@ const Stacks = () => {
             name: "Expo",
             icon: "/expo.png"
         },
-        
-    ]
-
-    const backData = [
+        {
+            name: "TailwindCSS",
+            icon: "/tailwindcss.png"
+        },
         {
             name: "Nodejs",
             icon: "/nodejs.png"
@@ -103,14 +83,9 @@ const Stacks = () => {
             name: "Postgresql",
             icon: "/postgresql.png"
         },
-        {
-            name: "Mysql",
-            icon: "/mysql.png"
-        },
-        
     ]
-
-    const opsData = [
+    
+    const toolsData = [
         {
             name: "Docker",
             icon: "/docker.png"
@@ -119,10 +94,6 @@ const Stacks = () => {
             name: "Supabase",
             icon: "/supabase.png"
         },
-        
-    ]
-
-    const toolsData = [
         {
             name: "Strapi",
             icon: "/strapi.png"
@@ -132,26 +103,23 @@ const Stacks = () => {
             icon: "/contentful.png"
         },
         {
-            name: "Cloudinary",
-            icon: "/cloudinary.png"
+            name: "Storyblok"
+        },
+        {
+            name: "Storybook"
         },
         {
             name: "Jest",
             icon: "/jest.png"
         },
-        {
-            name: "Figma",
-            icon: "/figma.png"
-        },
-        
     ]
   return (
         <View>
             <Text style={styles.title}>Compétences</Text>
       <View>
-        <Text style={styles.subtitle}>Front</Text>
+        <Text style={styles.subtitle}>Stack principale</Text>
         <View style={styles.section}>
-        {frontData.map((stack, index) => (
+        {mainStack.map((stack, index) => (
             <View key={index} style={styles.stackContainer}>
             <Image src={stack.icon} style={styles.icon}/>
             <Text style={styles.text}>{stack.name}</Text>
@@ -161,31 +129,7 @@ const Stacks = () => {
     </View>
     </View>
     <View>
-        <Text style={styles.subtitle}>Back</Text>
-        <View style={styles.section}>
-        {backData.map((stack, index) => (
-            <View key={index} style={styles.stackContainer}>
-            <Image src={stack.icon} style={styles.icon}/>
-            <Text style={styles.text}>{stack.name}</Text>
-            </View>
-        ))
-    }
-    </View>
-    </View>
-    <View>
-        <Text style={styles.subtitle}>Ops</Text>
-        <View style={styles.section}>
-        {opsData.map((stack, index) => (
-            <View key={index} style={styles.stackContainer}>
-            <Image src={stack.icon} style={styles.icon}/>
-            <Text style={styles.text}>{stack.name}</Text>
-            </View>
-        ))
-    }
-    </View>
-    </View>
-    <View>
-        <Text style={styles.subtitle}>Tools</Text>
+        <Text style={styles.subtitle}>Outils & Écosystème</Text>
         <View style={styles.section}>
         {toolsData.map((stack, index) => (
             <View key={index} style={styles.stackContainer}>

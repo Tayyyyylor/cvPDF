@@ -42,17 +42,7 @@ const School = () => {
       date: "2022 - 2024",
       diploma: "Développeur Web et Web mobile",
       school: " Simplon Ile de France 93600 Aulnay sous Bois"
-    },
-    {
-      date: "2017 - 2020",
-      diploma: "Licence De Philosophie Et Sociologie",
-      school: "Université Paris 1 Panthéon Sorbonne 75005 Paris"
-    },
-    {
-      date: "2016",
-      diploma: "Baccalauréat De Sciences Et Technologies De L’Industrie Et Du Développement Durable",
-      school: "Lycée Gustave Eiffel 93330 Gagny"
-    },
+    }
   ]
   return (
     <div>

@@ -1,6 +1,6 @@
 import { StyleSheet, View } from '@react-pdf/renderer';
 import React from 'react'
-import Contact from '../sections/Contact';
+// import Contact from '../sections/Contact';
 import Stacks from '../sections/Stacks';
 import Socials from '../sections/Socials';
 
@@ -14,7 +14,7 @@ container: {
 const LeftSide = () => {
   return (
   <View style={styles.container}>
-    <Contact />
+    {/* <Contact /> */}
     <Stacks />
     <Socials />
   </View>
