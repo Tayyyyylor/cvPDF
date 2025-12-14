@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     container: {
       display: "flex",
       flexDirection: "column",
-      gap: 20
+      gap: 15
     },
     title: {
       fontFamily: "Title",
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     jobContainer: {
       display: "flex",
       flexDirection: "column",
-      gap: 4,
+      gap: 4
 
     },
     date: {
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
       fontWeight: "bold"
     },
     boldText: {
-      fontSize: 14,
+      fontSize: 12,
       fontWeight: "bold",
        color: "#02326e"
     },
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
       fontWeight: "bold"
     },
     desc: {
-      fontSize: 11,
+      fontSize: 10,
      fontStyle: "italic"
     }
   });
@@ -43,8 +43,10 @@ const Professional = () => {
       {
         date: "Janvier 2024 - Aujourd'hui",
         poste: "Développeur FullStack",
-        entreprise: "Freelance",
-        desc: "Création de sites vitrines clés en main, Saas "
+        entreprise: "Freelance ( en parrallèle de l'alternance )",
+        desc: ` - Conception et développement de sites vitrines et applications SaaS
+- Stack : Next.js, TypeScript, Tailwind, Supabase
+- Gestion de projet de A à Z (besoin client, dev, mise en production)`
     },
         {
             date: "Juillet 2025 - Décembre 2025",
@@ -60,7 +62,11 @@ const Professional = () => {
             date: "Janvier 2023 - Juin 2025",
             poste: "Développeur Frontend Junior ( Alternance )",
             entreprise: "Razorfish ( Publicis Groupe )",
-            desc: "JIRA, réalisation de fonctionnalités, tracking"
+            desc: ` - Développement de fonctionnalités React et Next pour des sites de grands comptes (Nissan)
+            - Intégration UI/UX à partir de maquettes Figma
+            - Travail en équipe ( JIRA, Agile, cérémonies... )
+            - Tracking (Google Tag Manager et implémentations)
+            `
         },
         {
             date: "Septembre 2021",

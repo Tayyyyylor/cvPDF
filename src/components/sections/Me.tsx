@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         flexDirection: "row",
         justifyContent: "space-between",
-        marginBottom: 30
+        marginBottom: 25
 
     },
     container: {

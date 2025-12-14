@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "column",
-    gap: 20
+    gap: 15
   },
   title: {
     fontFamily: "Title",
@@ -22,10 +22,11 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontSize: 12,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    color: "#02326e"
   },
   desc: {
-    fontSize: 11,
+    fontSize: 10,
    fontStyle: "italic"
   }
 });
