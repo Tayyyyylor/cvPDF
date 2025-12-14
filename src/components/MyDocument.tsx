@@ -5,6 +5,9 @@ import RightSide from "./sides/RightSide";
 
 
 const styles = StyleSheet.create({
+  page: {
+    padding: 30
+  },
   container: {
     display: "flex",
     flexDirection: "row",
@@ -12,7 +15,7 @@ const styles = StyleSheet.create({
   },
   separator: {
     width: 1,
-    backgroundColor: "#6aadf1", // ou autre couleur
+    backgroundColor: "#02326e",
     marginHorizontal: 8,
   }
   });
@@ -20,7 +23,7 @@ const styles = StyleSheet.create({
 
 const MyDocument = () => (
     <Document>
-      <Page size="A4">
+      <Page size="A4" style={styles.page}>
         <Me />
         <View style={styles.container}>
           <LeftSide />

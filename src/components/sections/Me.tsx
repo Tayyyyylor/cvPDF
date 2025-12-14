@@ -4,11 +4,11 @@ import React from 'react'
 
 const styles = StyleSheet.create({
     mainContainer: {
-      padding: 30,
         display: "flex",
         alignItems: "center",
         flexDirection: "row",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        marginBottom: 30
 
     },
     container: {
@@ -28,25 +28,28 @@ const styles = StyleSheet.create({
       color: "#02326e"
     },
     image: {
-      width: 100,
-      height: 100
-    }
+    width: 110,
+    height: 110,
+    borderRadius: 55,
+    objectFit: "cover", 
+  },
+    
    
   });
 
 const Me = () => {
     
   return (
-    <div style={styles.mainContainer}>
+    <View style={styles.mainContainer}>
     <View style={styles.container}>
     <Text style={styles.name}>Bryan</Text>
     <Text style={styles.name}>Houblon</Text>
     <Text style={styles.job}>Développeur Full-stack</Text>
   </View>
       <View>
-         <Image src="/sass.png" style={styles.image}/>
+         <Image src="/me.png" style={styles.image}/>
       </View>
-    </div>
+    </View>
   )
 }
 

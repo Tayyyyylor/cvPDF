@@ -21,16 +21,15 @@ const styles = StyleSheet.create({
     width: "30%", 
     }, 
     icon: {
-        width: 16,
-        height: 16,
+        width: 12,
+        height: 12,
         marginBottom: 2,
     },
     text: {
-        fontSize: 11,
+        fontSize: 10,
         textAlign: "center"
     },
     title: {
-        textAlign: "center",
         marginBottom: 10,
         marginTop: 10,
             fontFamily: "Title",
@@ -60,24 +59,20 @@ const Stacks = () => {
             icon: "/nextdotjs.png"
         },
         {
-            name: "Expo",
-            icon: "/expo.png"
-        },
-        {
-            name: "TailwindCSS",
-            icon: "/tailwindcss.png"
-        },
-        {
             name: "Nodejs",
-            icon: "/nodejs.png"
+            icon: "/nodedotjs.png"
+        },
+        {
+            name: "Nestjs",
+            icon: "/nestjs.png"
         },
         {
             name: "Python",
             icon: "/python.png"
         },
         {
-            name: "Mariadb",
-            icon: "/mariadb.png"
+            name: "TailwindCSS",
+            icon: "/tailwindcss.png"
         },
         {
             name: "Postgresql",
@@ -99,14 +94,12 @@ const Stacks = () => {
             icon: "/strapi.png"
         },
         {
-            name: "Contentful",
-            icon: "/contentful.png"
+            name: "Storyblok",
+            icon: "/storyblok.png"
         },
         {
-            name: "Storyblok"
-        },
-        {
-            name: "Storybook"
+            name: "Storybook",
+            icon: "/storybook.png"
         },
         {
             name: "Jest",

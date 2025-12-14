@@ -24,11 +24,13 @@ const styles = StyleSheet.create({
       fontWeight: "bold"
     },
     boldText: {
-      fontSize: 12,
-      fontWeight: "bold"
+      fontSize: 14,
+      fontWeight: "bold",
+       color: "#02326e"
     },
     entreprise: {
-      fontSize: 10
+      fontSize: 10,
+      fontWeight: "bold"
     },
     desc: {
       fontSize: 11,
@@ -48,7 +50,11 @@ const Professional = () => {
             date: "Juillet 2025 - Décembre 2025",
             poste: "Développeur Frontend Junior",
             entreprise: "Razorfish ( Publicis Groupe )",
-            desc: "JIRA, réalisation de fonctionnalités, tracking"
+            desc: ` - Développement de fonctionnalités React et Next pour des sites de grands comptes (Nissan)
+            - Intégration UI/UX à partir de maquettes Figma
+            - Travail en équipe ( JIRA, Agile, cérémonies... )
+            - Tracking (Google Tag Manager et implémentations)
+            `
         },
         {
             date: "Janvier 2023 - Juin 2025",
