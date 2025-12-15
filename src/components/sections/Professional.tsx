@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { StyleSheet, Text, View } from '@react-pdf/renderer'
 import React from 'react'
 
@@ -38,8 +39,11 @@ const styles = StyleSheet.create({
     }
   });
 
-const Professional = () => {
-    const data = [
+
+        const translations: any = {
+  fr: {
+    title: "Expériences Profesionnelles",
+    jobs: [
       {
         date: "Janvier 2024 - Aujourd'hui",
         poste: "Développeur FullStack",
@@ -75,11 +79,57 @@ const Professional = () => {
             desc: "Gestion points WIFI, service informatique, montage et démontage des outils informatique et logiciels"
         }
     ]
+  },
+  en: {
+    title: "Professional Experience",
+    jobs: [
+      {
+        date: "January 2024 - Today",
+        poste: "FullStack Developer",
+        entreprise: "Freelancing (in parallel with the apprenticeship)",
+        desc: ` - Design and development of showcase websites and SaaS applications
+- Stack : Next.js, TypeScript, Tailwind, Supabase
+- End-to-end project management (client needs assessment, development, production deployment)`
+    },
+        {
+            date: "July 2025 - December 2025",
+            poste: "Junior Frontend Developer",
+            entreprise: "Razorfish ( Publicis Groupe )",
+            desc: ` - Developing React and Next features for major client websites (Nissan)
+            - UI/UX integration from Figma mockups
+            - Teamwork (JIRA, Agile, ceremonies...)
+            - Tracking (Google Tag Manager and implementations)
+            `
+        },
+        {
+            date: "January 2023 - June 2025",
+            poste: "Junior Frontend Developer ( Apprenticeship )",
+            entreprise: "Razorfish ( Publicis Groupe )",
+            desc: ` - Developing React and Next features for major client websites (Nissan)
+            - UI/UX integration from Figma mockups
+            - Teamwork (JIRA, Agile, ceremonies...)
+            - Tracking (Google Tag Manager and implementations)
+            `
+        },
+        {
+            date: "September 2021",
+            poste: "IT technician assistant",
+            entreprise: "Maison & Objet, Villepinte",
+            desc: "Management of Wi-Fi access points, IT services, assembly and disassembly of computer equipment and software"
+        }
+    ]
+  },
+};
+
+const Professional = ({lang}: any) => {
+
+     const t = translations[lang] ?? translations.fr;
+   
   return (
     <div>
         <View style={styles.container}>
-      <Text style={styles.title}>Expériences Profesionnelles</Text>
-            {data.map((dt, index) => (
+      <Text style={styles.title}>{t.title}</Text>
+            {t.jobs.map((dt: any, index: number) => (
                 <View key={index} style={styles.jobContainer}>
                     <Text style={styles.date}>{dt.date}</Text>
                     <Text style={styles.boldText}>{dt.poste}</Text>

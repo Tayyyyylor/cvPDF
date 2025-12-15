@@ -21,17 +21,19 @@ const styles = StyleSheet.create({
   });
 
 
-const MyDocument = () => (
+const MyDocument = () => {
+  const lang = "en"
+  return (
     <Document>
       <Page size="A4" style={styles.page}>
-        <Me />
+        <Me lang={lang}/>
         <View style={styles.container}>
-          <LeftSide />
+          <LeftSide lang={lang}/>
           <View style={styles.separator} />
-          <RightSide />
+          <RightSide lang={lang}/>
         </View>
       </Page>
     </Document>
-  );
+  )};
 
   export default MyDocument

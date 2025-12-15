@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/alt-text */
 import { Image, StyleSheet, Text, View } from '@react-pdf/renderer'
 import React from 'react'
@@ -37,14 +38,25 @@ const styles = StyleSheet.create({
    
   });
 
-const Me = () => {
+  const translations: any = {
+  fr: {
+    job: "Développeur Full-stack",
+  },
+  en: {
+    job: "Full-stack Developer",
+  },
+};
+
+const Me = ({lang}: any) => {
+
+  const t = translations[lang] ?? translations.fr;
     
   return (
     <View style={styles.mainContainer}>
     <View style={styles.container}>
     <Text style={styles.name}>Bryan</Text>
     <Text style={styles.name}>Houblon</Text>
-    <Text style={styles.job}>Développeur Full-stack</Text>
+    <Text style={styles.job}>{t.job}</Text>
   </View>
       <View>
          <Image src="/me.png" style={styles.image}/>

@@ -8,6 +8,19 @@ const splitInTwoColumns = (items: any) => {
   return [items.slice(0, middle), items.slice(middle)];
 };
 
+ const translations: any = {
+  fr: {
+    title: "Compétences",
+    mainStack: "Stack principale",
+    toolsStack: "Outils & Écosystème"
+  },
+  en: {
+    title: "Skills",
+    mainStack: "Main Stack",
+    toolsStack: "Tools & Ecosystem"
+  },
+};
+
 const styles = StyleSheet.create({
     mainContainer: {
         marginBottom: 20
@@ -47,7 +60,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Stacks = () => {
+const Stacks = ({lang}: any) => {
     const mainStack = [
         {
             name: "Typescript",
@@ -110,13 +123,16 @@ const Stacks = () => {
         },
     ]
 
+    const t = translations[lang] ?? translations.fr
+
     const [leftMain, rightMain] = splitInTwoColumns(mainStack);
     const [leftTools, rightTools] = splitInTwoColumns(toolsData);
+
   return (
         <View>
-            <Text style={styles.title}>Compétences</Text>
+            <Text style={styles.title}>{t.title}</Text>
       <View style={styles.mainContainer}>
-  <Text style={styles.subtitle}>Stack principale</Text>
+  <Text style={styles.subtitle}>{t.mainStack}</Text>
 
   <View style={styles.section}>
     <View style={styles.column}>
@@ -139,7 +155,7 @@ const Stacks = () => {
   </View>
 </View>
    <View>
-  <Text style={styles.subtitle}>Outils & Écosystème</Text>
+  <Text style={styles.subtitle}>{t.toolsStack}</Text>
 
   <View style={styles.section}>
     <View style={styles.column}>

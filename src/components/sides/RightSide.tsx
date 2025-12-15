@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { StyleSheet, View } from '@react-pdf/renderer';
 import React from 'react'
 import Professional from '../sections/Professional';
@@ -11,11 +12,11 @@ const styles = StyleSheet.create({
       }
   });
 
-const RightSide = () => {
+const RightSide = ({lang}: any) => {
   return (
     <View style={styles.container}>
-    <Professional />
-    <School />
+    <Professional lang={lang}/>
+    <School lang={lang}/>
   </View>
   )
 }
