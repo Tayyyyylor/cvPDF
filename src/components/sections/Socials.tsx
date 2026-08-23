@@ -75,7 +75,7 @@ const Socials = ({lang}: any) => {
         <Text style={styles.title}>Socials</Text>
         <View style={styles.contactContainer}>
             <Text style={styles.contact}>{t.phone}: 06.18.09.07.33</Text>
-            <Link href="mailto:bryan.houblon@icloud.com">
+            <Link href="mailto:devbryan@proton.me">
             <Text style={styles.contact}>bryan.houblon@icloud.com</Text>
             </Link>
         </View>

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 
 
 const MyDocument = () => {
-  const lang = "en"
+  const lang = "fr"
   return (
     <Document>
       <Page size="A4" style={styles.page}>
