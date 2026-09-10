@@ -32,7 +32,7 @@ const Contact = () => {
         },
         {
             icon: "/mail.png",
-            text: "bryan.houblon@icloud.com"
+            text: "bryan.houblon@proton.me"
         },
         // {
         //     icon: "",
