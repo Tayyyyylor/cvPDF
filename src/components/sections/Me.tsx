@@ -1,68 +1,39 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable jsx-a11y/alt-text */
-import { Image, StyleSheet, Text, View } from '@react-pdf/renderer'
-import React from 'react'
+import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { identity, type CvContent } from "@/content/cv";
+import { colors, Rich } from "../pdf-ui";
 
 const styles = StyleSheet.create({
-    mainContainer: {
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginBottom: 25
-
-    },
-    container: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: 5
-    },
-    name: {
-      fontSize: 28,
-      fontWeight: "bold",
-      color: "#02326e"
-    },
-    job: {
-      fontSize: 20,
-      fontWeight: "bold",
-      color: "#02326e"
-    },
-    image: {
-    width: 110,
-    height: 110,
-    borderRadius: 55,
-    objectFit: "cover", 
+  container: {
+    marginBottom: 16,
   },
-    
-   
-  });
-
-  const translations: any = {
-  fr: {
-    job: "Développeur Full-stack",
+  name: {
+    fontSize: 26,
+    lineHeight: 1.15,
+    fontWeight: "bold",
+    color: colors.accent,
   },
-  en: {
-    job: "Full-stack Developer",
+  job: {
+    fontSize: 14,
+    lineHeight: 1.2,
+    fontWeight: "bold",
+    color: colors.accent,
+    marginTop: 2,
+    marginBottom: 8,
   },
-};
+  summary: {
+    fontSize: 10,
+    lineHeight: 1.45,
+  },
+});
 
-const Me = ({lang}: any) => {
-
-  const t = translations[lang] ?? translations.fr;
-    
-  return (
-    <View style={styles.mainContainer}>
-    <View style={styles.container}>
-    <Text style={styles.name}>Bryan</Text>
-    <Text style={styles.name}>Houblon</Text>
+const Me = ({ t }: { t: CvContent }) => (
+  <View style={styles.container}>
+    <Text style={styles.name}>
+      {identity.firstName} {identity.lastName}
+    </Text>
     <Text style={styles.job}>{t.job}</Text>
+    <Rich style={styles.summary}>{t.summary}</Rich>
   </View>
-      <View>
-         <Image src="/me.png" style={styles.image}/>
-      </View>
-    </View>
-  )
-}
+);
 
-export default Me
+export default Me;

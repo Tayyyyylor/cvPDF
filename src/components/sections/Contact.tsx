@@ -1,60 +1,33 @@
-/* eslint-disable jsx-a11y/alt-text */
-import { Image, StyleSheet, Text, View } from '@react-pdf/renderer'
-import React from 'react'
+import { Link, StyleSheet, Text, View } from "@react-pdf/renderer";
+import { identity, type CvContent } from "@/content/cv";
+import { colors, Rich, SectionTitle } from "../pdf-ui";
 
 const styles = StyleSheet.create({
-    container: {
-        display: "flex",
-        flexDirection: "column",
-        gap: 3
-    },
-    contactContainer: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: 5
-    },
-    text: {
-        fontSize: 12,
-        fontWeight: "bold"
-    },
-    icon: {
-        width: 16,
-        height: 16
-    }
-})
+  list: {
+    gap: 3,
+  },
+  link: {
+    color: colors.accent,
+    textDecoration: "none",
+  },
+});
 
-const Contact = () => {
-    const data = [
-        {
-            icon: "/phone.png",
-            text: "06.18.09.07.33"
-        },
-        {
-            icon: "/mail.png",
-            text: "bryan.houblon@proton.me"
-        },
-        // {
-        //     icon: "",
-        //     text: "linkedin"
-        // },
-        // {
-        //     icon: "",
-        //     text: "github"
-        // },
-    ]
+const Contact = ({ t }: { t: CvContent }) => {
+  const links = [{ label: t.phone, href: identity.phoneHref }, identity.email, ...identity.links];
+
   return (
-   <View style={styles.container}>
-        {data.map((dt, index) => (
-            <View key={index} style={styles.contactContainer}>
-                <Image src={dt.icon} style={styles.icon}/>
-                <Text style={styles.text}>{dt.text}</Text>
-            </View>
-        ))
+    <View>
+      <SectionTitle>{t.labels.contact}</SectionTitle>
+      <View style={styles.list}>
+        <Rich>{t.location}</Rich>
+        {links.map((link) => (
+          <Link key={link.href} src={link.href} style={styles.link}>
+            <Text>{link.label}</Text>
+          </Link>
+        ))}
+      </View>
+    </View>
+  );
+};
 
-        }
-   </View>
-  )
-}
-
-export default Contact
+export default Contact;

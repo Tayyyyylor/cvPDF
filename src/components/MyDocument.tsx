@@ -1,39 +1,58 @@
 import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
+import { content, identity, skills, type Lang } from "@/content/cv";
+import { colors, isPlaceholder } from "./pdf-ui";
 import Me from "./sections/Me";
 import LeftSide from "./sides/LeftSide";
 import RightSide from "./sides/RightSide";
 
-
 const styles = StyleSheet.create({
   page: {
-    padding: 30
+    paddingVertical: 32,
+    paddingHorizontal: 34,
+    fontSize: 9.5,
+    lineHeight: 1.35,
+    color: colors.text,
   },
-  container: {
-    display: "flex",
+  columns: {
     flexDirection: "row",
-    width: "100%"
+    flexGrow: 1,
   },
   separator: {
     width: 1,
-    backgroundColor: "#02326e",
-    marginHorizontal: 8,
-  }
-  });
+    backgroundColor: colors.rule,
+    marginHorizontal: 16,
+  },
+});
 
+const keywords = [...skills.main, ...skills.tools]
+  .map((skill) => skill.name)
+  .filter((name) => !isPlaceholder(name))
+  .join(", ");
 
-const MyDocument = () => {
-  const lang = "fr"
+const MyDocument = ({ lang }: { lang: Lang }) => {
+  const t = content[lang];
+  const fullName = `${identity.firstName} ${identity.lastName}`;
+
   return (
-    <Document>
+    <Document
+      title={t.documentTitle}
+      author={fullName}
+      subject={t.job}
+      keywords={keywords}
+      creator={fullName}
+      producer={fullName}
+      language={lang}
+    >
       <Page size="A4" style={styles.page}>
-        <Me lang={lang}/>
-        <View style={styles.container}>
-          <LeftSide lang={lang}/>
+        <Me t={t} />
+        <View style={styles.columns}>
+          <LeftSide t={t} />
           <View style={styles.separator} />
-          <RightSide lang={lang}/>
+          <RightSide t={t} />
         </View>
       </Page>
     </Document>
-  )};
+  );
+};
 
-  export default MyDocument
+export default MyDocument;

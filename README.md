@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CV PDF
 
-## Getting Started
+Générateur de mon CV en PDF (français et anglais) avec Next.js et [`@react-pdf/renderer`](https://react-pdf.org).
 
-First, run the development server:
+## Lancer
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvre <http://localhost:3000> : choisis la langue (FR / EN) puis clique sur « Télécharger le PDF »
+(fichier `CV-Bryan-Houblon-FR.pdf` ou `CV-Bryan-Houblon-EN.pdf`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Modifier le contenu
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Tout le texte est dans [`src/content/cv.ts`](src/content/cv.ts) : identité, liens, compétences,
+expériences, projets, formation et langues, pour les deux langues.
 
-## Learn More
+Les passages entre crochets (`[X] clients`, `[Ville]`…) sont des placeholders : ils s'affichent
+en orange dans le PDF. Remplace-les, crochets compris, avant d'envoyer le CV.
 
-To learn more about Next.js, take a look at the following resources:
+Le CV doit tenir sur une page : vérifie l'aperçu après chaque ajout.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/components/MyDocument.tsx` : la page A4 et les métadonnées du PDF
+- `src/components/sections/` : une section du CV par fichier
+- `src/components/pdf-ui.tsx` : couleurs, titres de section, puces, mise en évidence des placeholders
+- `src/components/icons.ts` : icônes vectorielles des technos ([Simple Icons](https://simpleicons.org), CC0)
+- `src/components/fonts.ts` : polices (Helvetica pour le texte, Poppins Bold pour les titres)
