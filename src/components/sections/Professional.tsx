@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "@react-pdf/renderer";
-import type { CvContent } from "@/content/cv";
+import { StyleSheet, View } from "@react-pdf/renderer";
+import type { Experience } from "@/content/cv";
 import { Bullets, colors, Labelled, Rich, SectionTitle } from "../pdf-ui";
 
 const styles = StyleSheet.create({
@@ -35,17 +35,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const Professional = ({ t }: { t: CvContent }) => (
+type Props = {
+  t: { labels: { experience: string; stack: string }; experiences: Experience[] };
+};
+
+const Professional = ({ t }: Props) => (
   <View>
     <SectionTitle>{t.labels.experience}</SectionTitle>
     <View style={styles.list}>
       {t.experiences.map((job, index) => (
         <View key={index} style={styles.item}>
           <View style={styles.heading}>
-            <Text style={styles.title}>{job.title}</Text>
-            <Text style={styles.date}>{job.date}</Text>
+            <Rich style={styles.title}>{job.title}</Rich>
+            <Rich style={styles.date}>{job.date}</Rich>
           </View>
-          <Text style={styles.company}>{job.company}</Text>
+          <Rich style={styles.company}>{job.company}</Rich>
           {job.context && <Rich style={styles.context}>{job.context}</Rich>}
           <Bullets items={job.bullets} />
           {job.stack && <Labelled label={t.labels.stack} value={job.stack} />}

@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from "@react-pdf/renderer";
-import type { CvContent } from "@/content/cv";
-import { colors, SectionTitle } from "../pdf-ui";
+import { StyleSheet, View } from "@react-pdf/renderer";
+import type { Education } from "@/content/cv";
+import { colors, Rich, SectionTitle } from "../pdf-ui";
 
 const styles = StyleSheet.create({
   list: {
@@ -30,18 +30,22 @@ const styles = StyleSheet.create({
   },
 });
 
-const School = ({ t }: { t: CvContent }) => (
+type Props = {
+  t: { labels: { education: string }; education: Education[] };
+};
+
+const School = ({ t }: Props) => (
   <View>
     <SectionTitle>{t.labels.education}</SectionTitle>
     <View style={styles.list}>
       {t.education.map((school, index) => (
         <View key={index} style={styles.item} wrap={false}>
           <View style={styles.heading}>
-            <Text style={styles.diploma}>{school.diploma}</Text>
-            <Text style={styles.date}>{school.date}</Text>
+            <Rich style={styles.diploma}>{school.diploma}</Rich>
+            <Rich style={styles.date}>{school.date}</Rich>
           </View>
-          <Text>{school.level}</Text>
-          <Text style={styles.details}>{school.school}</Text>
+          {school.level && <Rich>{school.level}</Rich>}
+          <Rich style={styles.details}>{school.school}</Rich>
         </View>
       ))}
     </View>

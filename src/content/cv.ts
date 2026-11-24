@@ -29,7 +29,7 @@ export type Project = {
 export type Education = {
   date: string;
   diploma: string;
-  level: string;
+  level?: string;
   school: string;
 };
 

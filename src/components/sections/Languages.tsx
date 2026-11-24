@@ -14,7 +14,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const Languages = ({ t }: { t: CvContent }) => (
+type Props = {
+  t: { labels: { languages: string }; languages: CvContent["languages"] };
+};
+
+const Languages = ({ t }: Props) => (
   <View>
     <SectionTitle>{t.labels.languages}</SectionTitle>
     <View style={styles.list}>
